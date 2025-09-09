@@ -18,7 +18,7 @@ const Hero = () => {
         left: 0,
         right: 0,
         bottom: 0,
-        backgroundImage: 'url("/hydroguard-product.jpg")',
+        backgroundImage: 'url("/Chronic wounds.jpg")',
         backgroundSize: 'cover',
         backgroundPosition: 'center 50%',
         backgroundRepeat: 'no-repeat',
@@ -34,7 +34,7 @@ const Hero = () => {
             marginBottom: '1.5rem',
             lineHeight: '1.2'
           }}>
-            A Gentle Solution for Chronic Wounds
+            Intelligent Wound Dressing
           </h1>
           
           <p style={{

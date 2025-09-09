@@ -25,27 +25,26 @@ const ChronicWounds = () => {
   return (
     <section id="chronic-wounds" className="section" style={{ background: 'transparent' }}>
       <div className="container">
-        <h2 className="section-title">Chronic Wounds We Treat</h2>
+        <h2 className="section-title">Applications</h2>
         <p className="section-subtitle">
-          Our smart hydrogel dressing is specifically designed to address the most challenging chronic wounds
+          Our smart hydrogel dressing is specifically designed to address the most prevalent and challenging wounds
         </p>
         
         <div style={{ 
           marginBottom: '3rem',
           width: '100%',
-          height: '400px',
           position: 'relative',
-          borderRadius: '15px',
-          overflow: 'hidden',
-          boxShadow: '0 10px 30px rgba(0, 0, 0, 0.3)'
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center'
         }}>
           <img 
-            src="/wound-care.png" 
+            src="/hydroguard-product.jpg" 
             alt="Chronic Wound Care"
             style={{
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
+              maxWidth: '400px',
+              height: 'auto',
+              objectFit: 'contain',
               objectPosition: 'center',
               opacity: 0.8,
               filter: 'brightness(0.9) contrast(1.1)'

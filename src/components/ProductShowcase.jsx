@@ -106,7 +106,7 @@ const ProductShowcase = () => {
                   fontWeight: 'bold',
                   marginRight: '1rem'
                 }}>
-                  💊
+                  ⚛️
                 </div>
                 <div>
                   <h4 style={{ margin: 0, color: '#ecf0f1' }}>Smart Drug Delivery</h4>

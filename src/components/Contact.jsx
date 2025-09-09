@@ -55,53 +55,12 @@ const Contact = () => {
                 background: 'rgba(255, 255, 255, 0.1)',
                 borderRadius: '10px'
               }}>
-                <div style={{ 
-                  width: '50px', 
-                  height: '50px', 
-                  background: '#3498db', 
-                  borderRadius: '50%',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: 'white',
-                  fontSize: '1.2rem',
-                  marginRight: '1rem'
-                }}>
-                  📧
-                </div>
                 <div>
                   <h4 style={{ margin: 0, color: '#ecf0f1', fontSize: '1.1rem' }}>Email</h4>
-                  <p style={{ margin: 0, color: '#bdc3c7' }}>smrnish@gmail.com</p>
+                  <p style={{ margin: 0, color: '#bdc3c7' }}>📧 hydroguardwoundsolutions@gmail.com</p>
                 </div>
               </div>
               
-              <div style={{ 
-                display: 'flex', 
-                alignItems: 'center', 
-                marginBottom: '1.5rem',
-                padding: '1rem',
-                background: 'rgba(255, 255, 255, 0.1)',
-                borderRadius: '10px'
-              }}>
-                <div style={{ 
-                  width: '50px', 
-                  height: '50px', 
-                  background: '#e74c3c', 
-                  borderRadius: '50%',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: 'white',
-                  fontSize: '1.2rem',
-                  marginRight: '1rem'
-                }}>
-                  📞
-                </div>
-                <div>
-                  <h4 style={{ margin: 0, color: '#ecf0f1', fontSize: '1.1rem' }}>Phone</h4>
-                  <p style={{ margin: 0, color: '#bdc3c7' }}>(408) 623-4442</p>
-                </div>
-              </div>
               
             </div>
 

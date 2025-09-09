@@ -54,7 +54,7 @@ const Differentiators = () => {
     },
     {
       title: "Targeted Drug Delivery",
-      description: "Intelligent release of antimicrobial agents, growth factors, and anti-inflammatory compounds",
+      description: "Intelligent release of antimicrobial agents and biofilm disruptors",
       benefit: "Maximizes treatment efficacy while minimizing side effects"
     },
     {

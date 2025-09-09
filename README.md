@@ -115,8 +115,7 @@ HydroGuard/
 
 ## 📞 Contact Information
 
-- **Email**: smrnish@gmail.com
-- **Phone**: (408) 623-4442
+- **Email**: hydroguardwoundsolutions@gmail.com
 
 ## 📄 License
 

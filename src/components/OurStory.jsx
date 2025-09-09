@@ -45,7 +45,7 @@ const OurStory = () => {
               marginBottom: '1.5rem',
               lineHeight: '1.7'
             }}>
-              HydroGuard was founded by a team of biomedical engineers, clinicians, and researchers who witnessed firsthand the devastating impact of chronic wounds on diabetic patients. Our journey began with a simple question: "What if we could create a smart dressing that could sense, analyze, and respond to wound conditions in real-time?"
+              HydroGuard was founded by a team of nano engineers, physicians and researchers who witnessed firsthand the devastating impact of chronic wounds on diabetic patients. Our journey began with a simple question: "What if we could create a smart dressing that could sense, analyze, and respond to wound conditions in real-time?"
             </p>
             
             <p style={{
@@ -77,7 +77,7 @@ const OurStory = () => {
                 marginTop: '0.5rem',
                 margin: 0
               }}>
-                - Smrithi Suresh, Founder & CEO
+                - Smrithi Suresh, Co Founder & CEO
               </p>
             </div>
           </div>

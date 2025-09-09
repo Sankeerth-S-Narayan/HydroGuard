@@ -3,14 +3,9 @@ import React from 'react'
 const Statistics = () => {
   const stats = [
     {
-      number: "15%",
-      label: "of diabetic patients develop chronic wounds",
-      description: "Leading cause of non-traumatic lower limb amputations"
-    },
-    {
-      number: "40%",
-      label: "faster healing with pH-responsive hydrogel",
-      description: "Compared to traditional wound dressings"
+      number: "6.5M",
+      label: "people affected by chronic wounds annually",
+      description: "In the United States alone"
     },
     {
       number: "85%",
@@ -18,9 +13,14 @@ const Statistics = () => {
       description: "Through intelligent pH monitoring and therapeutic release"
     },
     {
-      number: "6.5M",
-      label: "people affected by chronic wounds annually",
-      description: "In the United States alone"
+      number: "40%",
+      label: "faster healing with pH-responsive hydrogel",
+      description: "Compared to traditional wound dressings"
+    },
+    {
+      number: "15%",
+      label: "of diabetic patients develop chronic wounds",
+      description: "Leading cause of non-traumatic lower limb amputations"
     },
   ]
 

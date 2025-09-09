@@ -7,7 +7,7 @@ const HowItWorks = () => {
       title: "pH Detection",
       description: "The hydrogel continuously monitors the wound's pH level using embedded sensors",
       icon: "🔍",
-      detail: "Normal healing: pH 7.4-8.0 | Infected: pH 6.5-7.4 | Chronic: pH 5.5-6.5"
+      detail: "Infected wounds present in alkaline pH"
     },
     {
       step: "02", 
@@ -19,8 +19,8 @@ const HowItWorks = () => {
     {
       step: "03",
       title: "Targeted Therapy",
-      description: "Precise release of therapeutic agents based on detected pH levels and wound condition",
-      icon: "💊",
+      description: "Novel delivery system of synthetic compunds that prevent biofilm formation",
+      icon: "⚛️",
       detail: "Antimicrobial agents for infection | Growth factors for healing | Anti-inflammatory for chronic wounds"
     },
   ]

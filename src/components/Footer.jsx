@@ -78,11 +78,8 @@ const Footer = () => {
               Contact Info
             </h4>
             <div style={{ color: '#bdc3c7', lineHeight: '1.8' }}>
-              <p style={{ margin: '0 0 0.5rem 0' }}>
-                📧 smrnish@gmail.com
-              </p>
-              <p style={{ margin: '0 0 0.5rem 0' }}>
-                📞 (408) 623-4442
+              <p style={{ margin: '0 0 0.5rem 0', whiteSpace: 'nowrap' }}>
+                📧 hydroguardwoundsolutions@gmail.com
               </p>
             </div>
           </div>
@@ -91,16 +88,18 @@ const Footer = () => {
         <div style={{ 
           borderTop: '1px solid #34495e', 
           paddingTop: '2rem',
-          textAlign: 'center',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
           color: '#bdc3c7'
         }}>
-          <p style={{ margin: '0 0 1rem 0' }}>
-            © 2024 HydroGuard. All rights reserved. | 
+          <p style={{ margin: 0 }}>
+            © 2025 HydroGuard. All rights reserved. | 
             <a href="#" style={{ color: '#3498db', textDecoration: 'none', margin: '0 0.5rem' }}>Privacy Policy</a> | 
             <a href="#" style={{ color: '#3498db', textDecoration: 'none', margin: '0 0.5rem' }}>Terms of Service</a>
           </p>
           <p style={{ margin: 0, fontSize: '0.9rem' }}>
-            HydroGuard is a registered trademark. This product is for investigational use only and is not yet approved for commercial sale.
+            Created by <a href="https://github.com/Sankeerth-S-Narayan" target="_blank" rel="noopener noreferrer" style={{ color: '#3498db', textDecoration: 'none' }}>bluec0in</a>
           </p>
         </div>
       </div>
