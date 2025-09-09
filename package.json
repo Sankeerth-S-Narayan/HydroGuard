@@ -1,0 +1,24 @@
+{
+  "name": "hydroguard",
+  "version": "1.0.0",
+  "description": "Smart wound dressing for chronic wounds",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": ["wound care", "diabetes", "chronic wounds", "hydrogel"],
+  "author": "HydroGuard",
+  "license": "ISC",
+  "dependencies": {
+    "@vitejs/plugin-react": "^5.0.2",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "vite": "^7.1.5"
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.12",
+    "@types/react-dom": "^19.1.9"
+  }
+}
