@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import emailjs from '@emailjs/browser'
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -7,6 +8,8 @@ const Contact = () => {
     organization: '',
     message: ''
   })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState(null) // 'success', 'error', or null
 
   const handleChange = (e) => {
     setFormData({
@@ -15,11 +18,44 @@ const Contact = () => {
     })
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    // Handle form submission here
-    console.log('Form submitted:', formData)
-    alert('Thank you for your interest! We will contact you soon.')
+    setIsSubmitting(true)
+    setSubmitStatus(null)
+
+    try {
+      // EmailJS configuration - you'll need to replace these with your actual values
+      const serviceId = 'service_jwdbg68' // Replace with your EmailJS service ID
+      const templateId = 'template_ackag3o' // Replace with your EmailJS template ID
+      const publicKey = 'KoCnbJiyZAcDQAImt' // Replace with your EmailJS public key
+
+      // Prepare template parameters to match your EmailJS template
+      const templateParams = {
+        name: formData.name,
+        email: formData.email,
+        title: formData.organization || 'General Inquiry',
+        message: formData.message,
+        time: new Date().toLocaleString()
+      }
+
+      console.log('Sending with parameters:', templateParams)
+
+      // Send email using EmailJS
+      await emailjs.send(serviceId, templateId, templateParams, publicKey)
+      
+      setSubmitStatus('success')
+      setFormData({ name: '', email: '', organization: '', message: '' })
+    } catch (error) {
+      console.error('Error sending email:', error)
+      console.error('Error details:', {
+        status: error.status,
+        text: error.text,
+        response: error.response
+      })
+      setSubmitStatus('error')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -55,9 +91,17 @@ const Contact = () => {
                 background: 'rgba(255, 255, 255, 0.1)',
                 borderRadius: '10px'
               }}>
-                <div>
+                <div style={{ width: '100%', wordBreak: 'break-all' }}>
                   <h4 style={{ margin: 0, color: '#ecf0f1', fontSize: '1.1rem' }}>Email</h4>
-                  <p style={{ margin: 0, color: '#bdc3c7' }}>📧 hydroguardwoundsolutions@gmail.com</p>
+                  <p style={{ 
+                    margin: 0, 
+                    color: '#bdc3c7',
+                    wordBreak: 'break-all',
+                    overflowWrap: 'break-word',
+                    fontSize: '0.9rem'
+                  }}>
+                    📧 hydroguardwoundsolutions@gmail.com
+                  </p>
                 </div>
               </div>
               
@@ -97,6 +141,35 @@ const Contact = () => {
               }}>
                 Send Us a Message
               </h3>
+
+              {/* Success/Error Messages */}
+              {submitStatus === 'success' && (
+                <div style={{
+                  background: 'rgba(46, 204, 113, 0.2)',
+                  border: '1px solid #2ecc71',
+                  color: '#2ecc71',
+                  padding: '1rem',
+                  borderRadius: '8px',
+                  marginBottom: '1.5rem',
+                  textAlign: 'center'
+                }}>
+                  ✅ Thank you! Your message has been sent successfully. We'll get back to you soon.
+                </div>
+              )}
+
+              {submitStatus === 'error' && (
+                <div style={{
+                  background: 'rgba(231, 76, 60, 0.2)',
+                  border: '1px solid #e74c3c',
+                  color: '#e74c3c',
+                  padding: '1rem',
+                  borderRadius: '8px',
+                  marginBottom: '1.5rem',
+                  textAlign: 'center'
+                }}>
+                  ❌ Sorry, there was an error sending your message. Please try again or contact us directly at hydroguardwoundsolutions@gmail.com
+                </div>
+              )}
               
               <div style={{ marginBottom: '1.5rem' }}>
                 <label style={{ 
@@ -202,9 +275,16 @@ const Contact = () => {
               <button 
                 type="submit" 
                 className="btn"
-                style={{ width: '100%', fontSize: '1.1rem', padding: '15px' }}
+                disabled={isSubmitting}
+                style={{ 
+                  width: '100%', 
+                  fontSize: '1.1rem', 
+                  padding: '15px',
+                  opacity: isSubmitting ? 0.7 : 1,
+                  cursor: isSubmitting ? 'not-allowed' : 'pointer'
+                }}
               >
-                Send Message
+                {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>
             </form>
           </div>

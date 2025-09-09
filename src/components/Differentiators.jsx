@@ -79,17 +79,17 @@ const Differentiators = () => {
         
         <div style={{ marginBottom: '4rem' }}>
           <div style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
             gap: '2rem',
-            flexWrap: 'nowrap',
             maxWidth: '1400px',
-            margin: '0 auto'
+            margin: '0 auto',
+            padding: '0 1rem'
           }}>
             {features.map((feature, index) => (
               <div key={index} style={{
-                width: '280px',
+                width: '100%',
+                maxWidth: '280px',
                 height: '280px',
                 background: 'rgba(255, 255, 255, 0.1)',
                 borderRadius: '50%',
@@ -101,14 +101,13 @@ const Differentiators = () => {
                 textAlign: 'center',
                 padding: '1rem',
                 margin: '0 auto',
-                flexShrink: 0,
                 boxShadow: '0 10px 30px rgba(52, 152, 219, 0.4)'
               }}>
                 <h4 style={{
-                  fontSize: '1.2rem',
+                  fontSize: '1.4rem',
                   fontWeight: '700',
                   marginBottom: '1rem',
-                  color: '#ecf0f1'
+                  color: '#3498db'
                 }}>
                   {feature.title}
                 </h4>

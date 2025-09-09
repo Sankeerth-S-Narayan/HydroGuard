@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,8 +15,18 @@ const Header = () => {
       }
     }
 
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768)
+    }
+
     window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
+    window.addEventListener('resize', handleResize)
+    handleResize() // Check initial size
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      window.removeEventListener('resize', handleResize)
+    }
   }, [])
 
   return (
@@ -46,29 +57,37 @@ const Header = () => {
           </h1>
         </div>
         
-        <nav style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
-          <a href="#home" style={{ textDecoration: 'none', color: '#ecf0f1', fontWeight: '500' }}>Home</a>
-          <a href="#product" style={{ textDecoration: 'none', color: '#ecf0f1', fontWeight: '500' }}>Product</a>
-          <a href="#how-it-works" style={{ textDecoration: 'none', color: '#ecf0f1', fontWeight: '500' }}>How It Works</a>
-          <a href="#story" style={{ textDecoration: 'none', color: '#ecf0f1', fontWeight: '500' }}>Our Story</a>
-          <a href="#contact" style={{ textDecoration: 'none', color: '#ecf0f1', fontWeight: '500' }}>Contact</a>
-        </nav>
+        {!isMobile && (
+          <nav style={{ 
+            display: 'flex', 
+            alignItems: 'center', 
+            gap: '2rem'
+          }}>
+            <a href="#home" style={{ textDecoration: 'none', color: '#ecf0f1', fontWeight: '500' }}>Home</a>
+            <a href="#product" style={{ textDecoration: 'none', color: '#ecf0f1', fontWeight: '500' }}>Product</a>
+            <a href="#how-it-works" style={{ textDecoration: 'none', color: '#ecf0f1', fontWeight: '500' }}>How It Works</a>
+            <a href="#story" style={{ textDecoration: 'none', color: '#ecf0f1', fontWeight: '500' }}>Our Story</a>
+            <a href="#contact" style={{ textDecoration: 'none', color: '#ecf0f1', fontWeight: '500' }}>Contact</a>
+          </nav>
+        )}
 
-        <button
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          style={{
-            display: 'none',
-            background: 'none',
-            border: 'none',
-            fontSize: '1.5rem',
-            cursor: 'pointer'
-          }}
-        >
-          ☰
-        </button>
+        {isMobile && (
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            style={{
+              background: 'none',
+              border: 'none',
+              fontSize: '1.5rem',
+              cursor: 'pointer',
+              color: '#ecf0f1'
+            }}
+          >
+            ☰
+          </button>
+        )}
       </div>
 
-      {isMenuOpen && (
+      {isMenuOpen && isMobile && (
         <div style={{
           position: 'absolute',
           top: '100%',
@@ -76,18 +95,49 @@ const Header = () => {
           right: 0,
           background: isScrolled 
             ? 'rgba(44, 62, 80, 0.95)' 
-            : 'transparent',
-          backdropFilter: isScrolled ? 'blur(10px)' : 'none',
-          boxShadow: isScrolled ? '0 5px 20px rgba(0, 0, 0, 0.3)' : 'none',
+            : 'rgba(44, 62, 80, 0.95)',
+          backdropFilter: 'blur(10px)',
+          boxShadow: '0 5px 20px rgba(0, 0, 0, 0.3)',
           padding: '1rem',
-          transition: 'all 0.3s ease-in-out'
+          transition: 'all 0.3s ease-in-out',
+          zIndex: 1001
         }}>
           <nav style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-            <a href="#home" style={{ textDecoration: 'none', color: '#ecf0f1', fontWeight: '500' }}>Home</a>
-            <a href="#product" style={{ textDecoration: 'none', color: '#ecf0f1', fontWeight: '500' }}>Product</a>
-            <a href="#how-it-works" style={{ textDecoration: 'none', color: '#ecf0f1', fontWeight: '500' }}>How It Works</a>
-            <a href="#story" style={{ textDecoration: 'none', color: '#ecf0f1', fontWeight: '500' }}>Our Story</a>
-            <a href="#contact" style={{ textDecoration: 'none', color: '#ecf0f1', fontWeight: '500' }}>Contact</a>
+            <a 
+              href="#home" 
+              onClick={() => setIsMenuOpen(false)}
+              style={{ textDecoration: 'none', color: '#ecf0f1', fontWeight: '500', padding: '0.5rem 0' }}
+            >
+              Home
+            </a>
+            <a 
+              href="#product" 
+              onClick={() => setIsMenuOpen(false)}
+              style={{ textDecoration: 'none', color: '#ecf0f1', fontWeight: '500', padding: '0.5rem 0' }}
+            >
+              Product
+            </a>
+            <a 
+              href="#how-it-works" 
+              onClick={() => setIsMenuOpen(false)}
+              style={{ textDecoration: 'none', color: '#ecf0f1', fontWeight: '500', padding: '0.5rem 0' }}
+            >
+              How It Works
+            </a>
+            <a 
+              href="#story" 
+              onClick={() => setIsMenuOpen(false)}
+              style={{ textDecoration: 'none', color: '#ecf0f1', fontWeight: '500', padding: '0.5rem 0' }}
+            >
+              Our Story
+            </a>
+            <a 
+              href="#contact" 
+              onClick={() => setIsMenuOpen(false)}
+              style={{ textDecoration: 'none', color: '#ecf0f1', fontWeight: '500', padding: '0.5rem 0' }}
+            >
+              Contact
+            </a>
           </nav>
         </div>
       )}

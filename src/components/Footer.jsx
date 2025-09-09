@@ -32,12 +32,6 @@ const Footer = () => {
             }}>
               Revolutionizing chronic wound care through innovative smart hydrogel technology that improves patient outcomes and reduces healthcare costs.
             </p>
-            <div style={{ display: 'flex', gap: '1rem' }}>
-              <a href="#" style={{ color: '#bdc3c7', fontSize: '1.5rem' }}>📘</a>
-              <a href="#" style={{ color: '#bdc3c7', fontSize: '1.5rem' }}>🐦</a>
-              <a href="#" style={{ color: '#bdc3c7', fontSize: '1.5rem' }}>💼</a>
-              <a href="#" style={{ color: '#bdc3c7', fontSize: '1.5rem' }}>📧</a>
-            </div>
           </div>
           
           <div>

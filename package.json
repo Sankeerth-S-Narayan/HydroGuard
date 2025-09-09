@@ -8,10 +8,16 @@
     "build": "vite build",
     "preview": "vite preview"
   },
-  "keywords": ["wound care", "diabetes", "chronic wounds", "hydrogel"],
+  "keywords": [
+    "wound care",
+    "diabetes",
+    "chronic wounds",
+    "hydrogel"
+  ],
   "author": "HydroGuard",
   "license": "ISC",
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@vitejs/plugin-react": "^5.0.2",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
