@@ -4,6 +4,22 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
+  const [isAnimating, setIsAnimating] = useState(false)
+
+  const toggleMenu = () => {
+    if (isMenuOpen) {
+      // Closing menu - animate out
+      setIsAnimating(true)
+      setTimeout(() => {
+        setIsMenuOpen(false)
+        setIsAnimating(false)
+      }, 300) // Match animation duration
+    } else {
+      // Opening menu - animate in
+      setIsMenuOpen(true)
+      setIsAnimating(false)
+    }
+  }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -57,34 +73,119 @@ const Header = () => {
           </h1>
         </div>
         
-        {!isMobile && (
-          <nav style={{ 
+        <div style={{ display: 'flex', alignItems: 'center', gap: '2rem', position: 'relative' }}>
+          <div style={{ 
             display: 'flex', 
             alignItems: 'center', 
-            gap: '2rem'
+            gap: '2rem',
+            overflow: 'hidden',
+            position: 'relative',
+            maxWidth: isMenuOpen || isAnimating ? '500px' : '0',
+            transition: 'max-width 0.3s ease-out'
           }}>
-            <a href="#home" style={{ textDecoration: 'none', color: '#ecf0f1', fontWeight: '500' }}>Home</a>
-            <a href="#product" style={{ textDecoration: 'none', color: '#ecf0f1', fontWeight: '500' }}>Product</a>
-            <a href="#how-it-works" style={{ textDecoration: 'none', color: '#ecf0f1', fontWeight: '500' }}>How It Works</a>
-            <a href="#story" style={{ textDecoration: 'none', color: '#ecf0f1', fontWeight: '500' }}>Our Story</a>
-            <a href="#contact" style={{ textDecoration: 'none', color: '#ecf0f1', fontWeight: '500' }}>Contact</a>
-          </nav>
-        )}
-
-        {isMobile && (
+            {!isMobile && (
+              <nav style={{ 
+                display: 'flex', 
+                alignItems: 'center', 
+                gap: '2rem',
+                animation: isAnimating ? 'slideOutToRight 0.3s ease-out' : (isMenuOpen ? 'slideInFromRight 0.3s ease-out' : 'none'),
+                whiteSpace: 'nowrap',
+                minWidth: 'fit-content',
+                opacity: isMenuOpen || isAnimating ? 1 : 0,
+                transition: 'opacity 0.3s ease-out'
+              }}>
+              <a 
+                href="#home" 
+                onClick={() => toggleMenu()}
+                style={{ 
+                  textDecoration: 'none', 
+                  color: '#ecf0f1', 
+                  fontWeight: '500',
+                  transition: 'all 0.3s ease'
+                }}
+                onMouseEnter={(e) => e.target.style.opacity = '0.7'}
+                onMouseLeave={(e) => e.target.style.opacity = '1'}
+              >
+                Home
+              </a>
+              <a 
+                href="#product" 
+                onClick={() => toggleMenu()}
+                style={{ 
+                  textDecoration: 'none', 
+                  color: '#ecf0f1', 
+                  fontWeight: '500',
+                  transition: 'all 0.3s ease'
+                }}
+                onMouseEnter={(e) => e.target.style.opacity = '0.7'}
+                onMouseLeave={(e) => e.target.style.opacity = '1'}
+              >
+                Product
+              </a>
+              <a 
+                href="#how-it-works" 
+                onClick={() => toggleMenu()}
+                style={{ 
+                  textDecoration: 'none', 
+                  color: '#ecf0f1', 
+                  fontWeight: '500',
+                  transition: 'all 0.3s ease'
+                }}
+                onMouseEnter={(e) => e.target.style.opacity = '0.7'}
+                onMouseLeave={(e) => e.target.style.opacity = '1'}
+              >
+                How It Works
+              </a>
+              <a 
+                href="#story" 
+                onClick={() => toggleMenu()}
+                style={{ 
+                  textDecoration: 'none', 
+                  color: '#ecf0f1', 
+                  fontWeight: '500',
+                  transition: 'all 0.3s ease'
+                }}
+                onMouseEnter={(e) => e.target.style.opacity = '0.7'}
+                onMouseLeave={(e) => e.target.style.opacity = '1'}
+              >
+                Our Story
+              </a>
+              <a 
+                href="#contact" 
+                onClick={() => toggleMenu()}
+                style={{ 
+                  textDecoration: 'none', 
+                  color: '#ecf0f1', 
+                  fontWeight: '500',
+                  transition: 'all 0.3s ease'
+                }}
+                onMouseEnter={(e) => e.target.style.opacity = '0.7'}
+                onMouseLeave={(e) => e.target.style.opacity = '1'}
+              >
+                Contact
+              </a>
+              </nav>
+            )}
+          </div>
+          
           <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            onClick={toggleMenu}
             style={{
               background: 'none',
               border: 'none',
               fontSize: '1.5rem',
               cursor: 'pointer',
-              color: '#ecf0f1'
+              color: '#ecf0f1',
+              padding: '0.5rem',
+              borderRadius: '4px',
+              transition: 'background-color 0.3s ease'
             }}
+            onMouseEnter={(e) => e.target.style.backgroundColor = 'rgba(255, 255, 255, 0.1)'}
+            onMouseLeave={(e) => e.target.style.backgroundColor = 'transparent'}
           >
-            ☰
+            {isMenuOpen ? '✕' : '☰'}
           </button>
-        )}
+        </div>
       </div>
 
       {isMenuOpen && isMobile && (
@@ -105,35 +206,35 @@ const Header = () => {
           <nav style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
             <a 
               href="#home" 
-              onClick={() => setIsMenuOpen(false)}
+              onClick={() => toggleMenu()}
               style={{ textDecoration: 'none', color: '#ecf0f1', fontWeight: '500', padding: '0.5rem 0' }}
             >
               Home
             </a>
             <a 
               href="#product" 
-              onClick={() => setIsMenuOpen(false)}
+              onClick={() => toggleMenu()}
               style={{ textDecoration: 'none', color: '#ecf0f1', fontWeight: '500', padding: '0.5rem 0' }}
             >
               Product
             </a>
             <a 
               href="#how-it-works" 
-              onClick={() => setIsMenuOpen(false)}
+              onClick={() => toggleMenu()}
               style={{ textDecoration: 'none', color: '#ecf0f1', fontWeight: '500', padding: '0.5rem 0' }}
             >
               How It Works
             </a>
             <a 
               href="#story" 
-              onClick={() => setIsMenuOpen(false)}
+              onClick={() => toggleMenu()}
               style={{ textDecoration: 'none', color: '#ecf0f1', fontWeight: '500', padding: '0.5rem 0' }}
             >
               Our Story
             </a>
             <a 
               href="#contact" 
-              onClick={() => setIsMenuOpen(false)}
+              onClick={() => toggleMenu()}
               style={{ textDecoration: 'none', color: '#ecf0f1', fontWeight: '500', padding: '0.5rem 0' }}
             >
               Contact
@@ -141,6 +242,7 @@ const Header = () => {
           </nav>
         </div>
       )}
+
     </header>
   )
 }

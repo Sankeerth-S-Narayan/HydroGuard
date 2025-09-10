@@ -9,14 +9,18 @@ const OurStory = () => {
           Born from a vision to revolutionize chronic wound care for diabetic patients
         </p>
         
-        <div style={{ 
-          display: 'grid', 
-          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
+        <div className="our-story-content" style={{ 
+          display: 'flex',
+          flexDirection: 'column',
           gap: '3rem',
           alignItems: 'center',
           marginBottom: '4rem'
         }}>
-          <div>
+          <div className="our-story-image" style={{
+            order: 1,
+            width: '100%',
+            maxWidth: '600px'
+          }}>
             <img 
               src="/poster.jpg" 
               alt="HydroGuard Research and Development"
@@ -29,7 +33,10 @@ const OurStory = () => {
             />
           </div>
           
-          <div>
+          <div className="our-story-text" style={{
+            order: 2,
+            width: '100%'
+          }}>
             <h3 style={{ 
               fontSize: '2rem', 
               fontWeight: '600', 

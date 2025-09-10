@@ -90,9 +90,7 @@ const Footer = () => {
           color: '#bdc3c7'
         }}>
           <p style={{ margin: 0, flex: '1', minWidth: '250px' }}>
-            © 2025 HydroGuard. All rights reserved. | 
-            <a href="#" style={{ color: '#3498db', textDecoration: 'none', margin: '0 0.5rem' }}>Privacy Policy</a> | 
-            <a href="#" style={{ color: '#3498db', textDecoration: 'none', margin: '0 0.5rem' }}>Terms of Service</a>
+            © 2025 HydroGuard. All rights reserved.
           </p>
           <p style={{ margin: 0, fontSize: '0.9rem' }}>
             Created by <a href="https://github.com/Sankeerth-S-Narayan" target="_blank" rel="noopener noreferrer" style={{ color: '#3498db', textDecoration: 'none' }}>bluec0in</a>
