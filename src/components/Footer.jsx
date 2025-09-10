@@ -11,8 +11,8 @@ const Footer = () => {
       <div className="container">
         <div style={{ 
           display: 'grid', 
-          gridTemplateColumns: '2fr 1fr 1fr', 
-          gap: '3rem',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', 
+          gap: '2rem',
           marginBottom: '2rem',
           alignItems: 'start'
         }}>
@@ -72,7 +72,7 @@ const Footer = () => {
               Contact Info
             </h4>
             <div style={{ color: '#bdc3c7', lineHeight: '1.8' }}>
-              <p style={{ margin: '0 0 0.5rem 0', whiteSpace: 'nowrap' }}>
+              <p style={{ margin: '0 0 0.5rem 0', wordBreak: 'break-all' }}>
                 📧 hydroguardwoundsolutions@gmail.com
               </p>
             </div>
@@ -83,11 +83,13 @@ const Footer = () => {
           borderTop: '1px solid #34495e', 
           paddingTop: '2rem',
           display: 'flex',
+          flexWrap: 'wrap',
           justifyContent: 'space-between',
           alignItems: 'center',
+          gap: '1rem',
           color: '#bdc3c7'
         }}>
-          <p style={{ margin: 0 }}>
+          <p style={{ margin: 0, flex: '1', minWidth: '250px' }}>
             © 2025 HydroGuard. All rights reserved. | 
             <a href="#" style={{ color: '#3498db', textDecoration: 'none', margin: '0 0.5rem' }}>Privacy Policy</a> | 
             <a href="#" style={{ color: '#3498db', textDecoration: 'none', margin: '0 0.5rem' }}>Terms of Service</a>

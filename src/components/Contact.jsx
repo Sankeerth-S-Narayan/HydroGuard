@@ -153,7 +153,7 @@ const Contact = () => {
                   marginBottom: '1.5rem',
                   textAlign: 'center'
                 }}>
-                  ✅ Thank you! Your message has been sent successfully. We'll get back to you soon.
+                  Thank you! Your message has been sent successfully. We'll get back to you soon.
                 </div>
               )}
 
